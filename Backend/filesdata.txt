@@ -1,0 +1,20 @@
+{
+    "captain": {
+        "fullname": {
+            "firstname": "captain_first",
+            "lastname": "captain_last"
+        },
+        "email": "captain_mail@gmail.com",
+        "password": "$2b$10$Osmc1iXw/OkxEuHpxIxVIOBphHD7S3V6tDvTwyABITA/MXpg6A9Va",
+        "status": "active",
+        "vehicle": {
+            "color": "red",
+            "plate": "Ap 04 ZX 0098",
+            "capacity": 3,
+            "vehicleType": "car"
+        },
+        "_id": "67c7cf8c15e8c8aa2a1998cd",
+        "__v": 0
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2M3Y2Y4YzE1ZThjOGFhMmExOTk4Y2QiLCJpYXQiOjE3NDExNDgwNDQsImV4cCI6MTc0MTIzNDQ0NH0.i3Nm0onnyPUu2vIILIHOeU6XyiDRlkZ2f2sxwgJu_3s"
+}
