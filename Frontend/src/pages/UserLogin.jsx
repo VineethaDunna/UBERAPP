@@ -1,22 +1,44 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserDataContext } from "../context/UserContext";
+import axios from "axios";
+
 const UserLogin = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [userData, setUserData] = useState({});
 
-	const submitHandler = (e) => {
+	const { user, setUser } = useContext(UserDataContext);
+	const navigate = useNavigate();
+
+	const submitHandler = async (e) => {
 		e.preventDefault();
-		setUserData({ email: email, password: password });
-		console.log(userData.email);
+		const userData = {
+			email: email,
+			password: password,
+		};
+
+		const response = await axios.post(
+			`${import.meta.env.VITE_BASE_URL}/users/login`,
+			userData
+		);
+
+
+		if (response.status === 200) {
+			const data = response.data;
+			setUser(data.user);
+			localStorage.setItem("user", JSON.stringify(data.user));
+			localStorage.setItem("token", data.token);
+
+			navigate("/home");
+		}
+
 		setEmail("");
 		setPassword("");
 	};
 	return (
 		<div className='p-5  flex flex-col  justify-between h-screen bg-[#f7f7f7]'>
 			<div>
-				
-                <img
+				<img
 					className='  w-20 mb-5'
 					src='https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png'
 				/>
